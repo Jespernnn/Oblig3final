@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="script.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Bestilling av kinobiletter</h1>
+  <form>
+    <select id="film" required>
+      <option value="">Select a film</option>
+      <option value="pirates">Pirates of the Caribbean</option>
+      <option value="star_wars">Star Wars: Episode II</option>
+      <option value="ted">Ted: The Movie</option>
+    </select><span id="filmError" style="color:red;"></span>
+    <br>
+    <br>
+    Antall: <input type="number" id="antall" min="1" required><span id="antallError" style="color:red;"></span>
+    <br>
+    <label for="fornavn">Fornavn:</label>
+    <input id="fornavn" type="text" required /><span id="fornavnError" style="color:red;"></span>
+    <br>
+    <label for="etternavn">Etternavn:</label>
+    <input type="text" id="etternavn">
+    <br>
+    <label for="telefonnr">Telefonnr:</label>
+    <input type="tel" id="telefonnr">
+    <br>
+    <label for="epost">Epost:</label>
+    <input type="email" id="epost">
+    <br>
+    <button type="button" onclick="hentData()" class="btn btn-primary">Bestill her!</button>
+    <div id="hentData"></div>
+    <br>
+    <div id="personError" style="color:red;"><span></span></div>
+    <br>
+    Alle biletter:
+    <br>
+    <br>
+    <button type="button" onclick="fjernData()" class="btn btn-danger">Slett bilettvalg!</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
