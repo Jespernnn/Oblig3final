@@ -4,10 +4,10 @@
             private String film;
             private int antall;
             private String fornavn;
-
             private String etternavn;
             private String telefonnr;
             private String epost;
+
 
             public String getFilm() {
                 return film;
@@ -56,6 +56,5 @@
             public void setEpost(String epost) {
                 this.epost = epost;
             }
-
 
         }
