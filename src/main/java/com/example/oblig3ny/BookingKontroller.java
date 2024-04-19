@@ -25,9 +25,27 @@ public class BookingKontroller {
         return rep.hentAlleBiletter();
     }
 
+    @GetMapping("/hentBilett")
+    public Booking hentBilett(int id) {
+        return rep.hentBilett(id);
+    }
 
+    @PostMapping("/oppdater")
+    public void oppdaterBilett(@RequestBody Booking kunde) {
+        rep.oppdaterBilett(kunde);
+    }
+
+    @DeleteMapping("/slettBilett")
+    public void slettEn(@RequestParam("id") int id) {
+        rep.slettBilett(id);
+    }
     @DeleteMapping("/slettAlle")
     public void slettAlle() {
         rep.slettAlleBiletter();
+    }
+    @GetMapping("/sorter")
+    public ResponseEntity<List<Booking>> sorter() {
+        List<Booking> sortedList = rep.sorterBilletter();
+        return ResponseEntity.ok(sortedList);
     }
 }

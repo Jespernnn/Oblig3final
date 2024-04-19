@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -20,10 +20,10 @@
     </select><span id="filmError" style="color:red;"></span>
     <br>
     <br>
-    Antall: <input type="number" id="antall" min="1" required><span id="antallError" style="color:red;"></span>
+    Antall: <input type="number" id="antall" min="1" required>
     <br>
     <label for="fornavn">Fornavn:</label>
-    <input id="fornavn" type="text" required /><span id="fornavnError" style="color:red;"></span>
+    <input id="fornavn" type="text" required />
     <br>
     <label for="etternavn">Etternavn:</label>
     <input type="text" id="etternavn">
@@ -44,6 +44,7 @@
     <div id="alleBilletter"></div>
     <br>
     <button class="btn btn-danger" type="button" onclick="slettAlle()" id="slettAlleButton">Slett alle</button>
+    <button class="btn btn-primary" type="button" onclick="sorterDB()" id="sorterTabell">Sorter tabellen</button>
   </form>
 </div>
 

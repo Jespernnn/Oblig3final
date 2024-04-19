@@ -11,9 +11,12 @@ function visAlleBilletter(billetter) {
             billetter[i].etternavn + "</td><td>" +
             billetter[i].telefonnr + "</td><td>" +
             billetter[i].epost + "</td><td>" +
+            "<a class='btn btn-primary' href='endreBooking.html?id=" + billetter[i].id + "'>Endre</a></td>"+
+            "<td> <button class='btn btn-danger' onclick='slettEnKunde(" + billetter[i].id +")'>Slett</button></td>"+
             "</tr>";
     }
     $('#alleBilletter').html(ut);
+
 }
 
 function bestillBillett() {
@@ -97,3 +100,32 @@ function slettAlle() {
         }
     })
 }
+
+function slettEnKunde(id) {
+    const url = "/slettBilett?id=" + id;
+    $.ajax({
+        url: url,
+        type: 'DELETE',
+        success: function () {
+            alert("slettet");
+            window.location.href = 'index.html';
+        },
+        error: function (error) {
+            alert("det oppsto en feil");
+        }
+    });
+}
+
+    function sorterDB() {
+        const url = "/sorter";
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (sortedBilletter) {
+                visAlleBilletter(sortedBilletter);
+            },
+            error: function (error) {
+                alert("Det skjedde en feil, prøv igjen");
+            }
+        });
+    }

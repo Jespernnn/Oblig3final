@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="endreBooking.js"></script>
+</head>
+<body>
+<h1>Endre Kunde</h1>
+<form>
+    <input type="hidden" id="id"/>
+    <select id="film" required>
+        <option value="">Select a film</option>
+        <option value="pirates">Pirates of the Caribbean</option>
+        <option value="star_wars">Star Wars: Episode II</option>
+        <option value="ted">Ted: The Movie</option>
+    </select><span id="filmError" style="color:red;"></span>
+
+    <br>
+    <br>
+    Antall: <input type="number" id="antall" min="1" required>
+    <br>
+    <label for="fornavn">Fornavn:</label>
+    <input id="fornavn" type="text" required />
+    <br>
+    <label for="etternavn">Etternavn:</label>
+    <input type="text" id="etternavn">
+    <br>
+    <label for="telefonnr">Telefonnr:</label>
+    <input type="tel" id="telefonnr">
+    <br>
+    <label for="epost">Epost:</label>
+    <input type="email" id="epost">
+    <br>
+    <div id="personError" style="color:red;"><span></span></div>
+    <br>
+    <div class="form group">
+        <button onclick="endreBiletten()">Endre</button>
+    </div>
+</form>
+
+
+</body>
+</html>
