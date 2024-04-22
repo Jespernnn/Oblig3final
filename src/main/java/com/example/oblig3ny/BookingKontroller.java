@@ -16,8 +16,8 @@ public class BookingKontroller {
     BookingRepository rep;
 
     @PostMapping("/lagre")
-    public void lagreBilett(@RequestBody Booking kunde) {
-        rep.lagreBilett(kunde);
+    public void lagreBilett(@RequestBody Booking customer) {
+        rep.lagreBilett(customer);
     }
 
     @GetMapping("/hentAlle")
@@ -31,8 +31,8 @@ public class BookingKontroller {
     }
 
     @PostMapping("/oppdater")
-    public void oppdaterBilett(@RequestBody Booking kunde) {
-        rep.oppdaterBilett(kunde);
+    public void oppdaterBilett(@RequestBody Booking customer) {
+        rep.oppdaterBilett(customer);
     }
 
     @DeleteMapping("/slettBilett")

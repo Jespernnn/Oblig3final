@@ -15,9 +15,9 @@ public class BookingRepository {
         this.db = db;
     }
 
-    public void lagreBilett(Booking kunde) {
+    public void lagreBilett(Booking customer) {
         String sql = "INSERT INTO Booking (film, antall, fornavn, etternavn, telefonnr, epost) VALUES(?,?,?,?,?,?)";
-        db.update(sql, kunde.getFilm(), kunde.getAntall(), kunde.getFornavn(), kunde.getEtternavn(), kunde.getTelefonnr(), kunde.getEpost());
+        db.update(sql, customer.getFilm(), customer.getAntall(), customer.getFornavn(), customer.getEtternavn(), customer.getTelefonnr(), customer.getEpost());
     }
 
     public List<Booking> hentAlleBiletter() {
@@ -38,7 +38,7 @@ public class BookingRepository {
         return enBilett;
     }
 
-    public void oppdaterBilett(Booking kunde) {
+    public void oppdaterBilett(Booking customer) {
         String sql = "UPDATE Booking " +
                 "SET film = ?, " +
                 "    antall = ?, " +
@@ -51,13 +51,13 @@ public class BookingRepository {
         try {
             // Execute the update and capture the number of rows affected
             int rowsAffected = db.update(sql,
-                    kunde.getFilm(),
-                    kunde.getAntall(),
-                    kunde.getFornavn(),
-                    kunde.getEtternavn(),
-                    kunde.getTelefonnr(),
-                    kunde.getEpost(),
-                    kunde.getId());
+                    customer.getFilm(),
+                    customer.getAntall(),
+                    customer.getFornavn(),
+                    customer.getEtternavn(),
+                    customer.getTelefonnr(),
+                    customer.getEpost(),
+                    customer.getId());
 
             // Log the number of rows affected
             System.out.println("Rows affected: " + rowsAffected);

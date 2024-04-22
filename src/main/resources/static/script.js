@@ -16,7 +16,6 @@ function visAlleBilletter(billetter) {
             "</tr>";
     }
     $('#alleBilletter').html(ut);
-
 }
 
 function bestillBillett() {
@@ -62,13 +61,13 @@ function bestillBillett() {
     }
 
     if (isValid) {
-        const kunde = { film, antall, fornavn, etternavn, telefonnr, epost };
+        const customer = { film, antall, fornavn, etternavn, telefonnr, epost };
         const url = "/lagre";
         $.ajax({
             url: url,
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(kunde),
+            data: JSON.stringify(customer),
             success: function() {
                 window.location.href = 'index.html';
             }
