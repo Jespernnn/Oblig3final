@@ -3,9 +3,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-
-
 import java.util.List;
 @Repository
 public class BookingRepository {
@@ -30,7 +27,7 @@ public class BookingRepository {
         String sql = "DELETE FROM Booking";
         db.update(sql);
     }
-    public Booking hentBilett(int id) {
+    public Booking hentBooking(int id) {
         Object[] param = new Object[1];
         param[0] = id;
         String sql = "SELECT * FROM Booking WHERE id=?";
@@ -49,7 +46,6 @@ public class BookingRepository {
                 "WHERE id = ?";
 
         try {
-            // Execute the update and capture the number of rows affected
             int rowsAffected = db.update(sql,
                     customer.getFilm(),
                     customer.getAntall(),
@@ -59,24 +55,20 @@ public class BookingRepository {
                     customer.getEpost(),
                     customer.getId());
 
-            // Log the number of rows affected
             System.out.println("Rows affected: " + rowsAffected);
 
-            // Check if no rows were affected and handle the situation
             if (rowsAffected == 0) {
-                handleNoRowsUpdated(); // Use a separate method to handle no updates
+                handleNoRowsUpdated();
             }
         } catch (Exception e) {
-            // Log and handle exceptions
             System.err.println("An error occurred during the booking update: " + e.getMessage());
         }
     }
 
     private void handleNoRowsUpdated() {
         System.out.println("No rows were updated. Please check if the ID is correct and exists in the database.");
-        // This method can be extended to log this incident, alert admins, etc.
     }
-    public void slettBilett(int id) {
+    public void slettBooking(int id) {
         String sql = "DELETE FROM Booking WHERE id=?";
         db.update(sql, id);
     }

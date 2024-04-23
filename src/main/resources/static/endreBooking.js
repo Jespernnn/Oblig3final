@@ -3,7 +3,7 @@ $(function() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     if (id) {
-        const url = "/hentBilett?id=" + id;
+        const url = "/hentBooking?id=" + id;
         $.get(url, function(customer) {
             $('#id').val(customer.id);
             $('#film').val(customer.film);

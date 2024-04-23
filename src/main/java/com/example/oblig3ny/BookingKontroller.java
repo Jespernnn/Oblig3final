@@ -1,12 +1,7 @@
 package com.example.oblig3ny;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,9 +20,9 @@ public class BookingKontroller {
         return rep.hentAlleBiletter();
     }
 
-    @GetMapping("/hentBilett")
-    public Booking hentBilett(int id) {
-        return rep.hentBilett(id);
+    @GetMapping("/hentBooking")
+    public Booking hentBooking(int id) {
+        return rep.hentBooking(id);
     }
 
     @PostMapping("/oppdater")
@@ -35,16 +30,16 @@ public class BookingKontroller {
         rep.oppdaterBilett(customer);
     }
 
-    @DeleteMapping("/slettBilett")
+    @DeleteMapping("/slettBooking")
     public void slettEn(@RequestParam("id") int id) {
-        rep.slettBilett(id);
+        rep.slettBooking(id);
     }
     @DeleteMapping("/slettAlle")
     public void slettAlle() {
         rep.slettAlleBiletter();
     }
     @GetMapping("/sorter")
-    public ResponseEntity<List<Booking>> sorter() {
+    public ResponseEntity<List<Booking>> sorterTickets() {
         List<Booking> sortedList = rep.sorterBilletter();
         return ResponseEntity.ok(sortedList);
     }

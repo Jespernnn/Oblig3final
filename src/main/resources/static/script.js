@@ -32,7 +32,6 @@ function bestillBillett() {
 
     let isValid = true;
 
-    // Clear previous messages
     $('.validation-msg').text('');
 
     if (!film) {
@@ -77,14 +76,6 @@ function bestillBillett() {
 }
 
 
-
-
-function hentAlleBilletter(){
-    $.get("/hentAlle", function(billetter){
-        visAlleBilletter(billetter);
-    });
-}
-
 function slettAlle() {
     const url = "/slettAlle";
     $.ajax({
@@ -101,7 +92,7 @@ function slettAlle() {
 }
 
 function slettEnKunde(id) {
-    const url = "/slettBilett?id=" + id;
+    const url = "/slettBooking?id=" + id;
     $.ajax({
         url: url,
         type: 'DELETE',
@@ -114,8 +105,13 @@ function slettEnKunde(id) {
         }
     });
 }
+function hentAlleBilletter(){
+    $.get("/hentAlle", function(billetter){
+        visAlleBilletter(billetter);
+    });
+}
 
-    function sorterDB() {
+    function sorterTickets() {
         const url = "/sorter";
         $.ajax({
             url: url,
@@ -124,7 +120,7 @@ function slettEnKunde(id) {
                 visAlleBilletter(sortedBilletter);
             },
             error: function (error) {
-                alert("Det skjedde en feil, prøv igjen");
+                alert("fault.");
             }
         });
     }

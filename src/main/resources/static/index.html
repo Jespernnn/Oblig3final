@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Order Movie Tickets</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -10,44 +10,53 @@
 </head>
 <body>
 <div class="container">
-  <h1>Bestilling av kinobiletter</h1>
-  <form>
+  <h1>Order movie tickets</h1>
+
+  <div class="mb-3">
     <select id="film" required>
       <option value="">Select a film</option>
       <option value="pirates">Pirates of the Caribbean</option>
       <option value="star_wars">Star Wars: Episode II</option>
       <option value="ted">Ted: The Movie</option>
-    </select><span id="filmError" style="color:red;"></span>
-    <br>
-    <br>
-    Antall: <input type="number" id="antall" min="1" required>
-    <br>
-    <label for="fornavn">Fornavn:</label>
-    <input id="fornavn" type="text" required />
-    <br>
-    <label for="etternavn">Etternavn:</label>
-    <input type="text" id="etternavn">
-    <br>
-    <label for="telefonnr">Telefonnr:</label>
-    <input type="tel" id="telefonnr">
-    <br>
-    <label for="epost">Epost:</label>
-    <input type="email" id="epost">
-    <br>
-    <button type="button" onclick="bestillBillett()" class="btn btn-primary">Bestill her!</button>
-    <div id="skaffInfo"></div>
-    <br>
-    <div id="personError" style="color:red;"><span></span></div>
-    <br>
-    Alle biletter:
-    <br>
-    <div id="alleBilletter"></div>
-    <br>
-    <button class="btn btn-danger" type="button" onclick="slettAlle()" id="slettAlleButton">Slett alle</button>
-    <button class="btn btn-primary" type="button" onclick="sorterDB()" id="sorterTabell">Sorter bookinger</button>
-  </form>
-</div>
+    </select>
+    <span id="filmError" style="color:red;"></span>
+  </div>
 
+  <div class="mb-3">
+    <label for="antall">Antall:</label>
+    <input type="number" id="antall" min="1" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="fornavn">Fornavn:</label>
+    <input id="fornavn" type="text" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="etternavn">Etternavn:</label>
+    <input type="text" id="etternavn" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="telefonnr">Telefonnr:</label>
+    <input type="tel" id="telefonnr" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="epost">Epost:</label>
+    <input type="email" id="epost" required>
+  </div>
+
+  <button type="button" onclick="bestillBillett()" class="btn btn-primary">Bestill her!</button>
+  <div id="skaffInfo"></div>
+
+  <div id="personError" style="color:red;"></div>
+
+  <div id="alleBilletter"></div>
+
+  <button class="btn btn-danger" type="button" onclick="slettAlle()" id="slettAlleButton">Slett alle</button>
+  <button class="btn btn-primary" type="button" onclick="sorterTickets()" id="sorterTabell">Sorter bookinger</button>
+</div>
 
 </body>
 </html>
