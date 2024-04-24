@@ -1,6 +1,7 @@
         package com.example.oblig3ny;
 
         public class Booking {
+            //get-set for all the variables
             private int id;
             private String film;
             private int antall;

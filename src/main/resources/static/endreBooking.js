@@ -1,4 +1,4 @@
-
+//recieves the data from the single ticket. put in some error logging when i had some faults here.
 $(function() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -23,7 +23,7 @@ $(function() {
         $('#endreButton').prop('disabled', true); // Disable button if no ID
     }
 });
-
+// function for changing the values for ticket
 function endreBiletten() {
     if (!$('#id').val()) {
         alert('No valid ID loaded for updating.');
@@ -41,7 +41,7 @@ function endreBiletten() {
         epost: $('#epost').val()
     };
     console.log('customer object:', customer);
-
+//if the ticket is updated it will transfer us back to the index.html
     $.ajax({
         url: "/oppdater",
         type: "POST",
@@ -49,7 +49,7 @@ function endreBiletten() {
         data: JSON.stringify(customer),
         success: function() {
             alert('Update successful!');
-            window.location.href = 'index.html'; // Redirect or refresh page after update
+            window.location.href = 'index.html';
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error("Error updating ticket:", textStatus, errorThrown);

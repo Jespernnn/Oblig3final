@@ -1,6 +1,8 @@
+//getting the hentAlleBilletter at the start makes the table visible all the time and not only when pressing the bestill button
 $(function(){
     hentAlleBilletter();
 });
+//making the table with all the data aswell as the endre and slette buttons.
 function visAlleBilletter(billetter) {
     let ut = "<table class='table table-striped'>" +
         "<tr><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefon</th><th>Epost</th><th></th></tr>";
@@ -17,7 +19,7 @@ function visAlleBilletter(billetter) {
     }
     $('#alleBilletter').html(ut);
 }
-
+//bestillBillett get the values of all the inputs and checks if they have the right values. if not we print a fault.
 function bestillBillett() {
     const film = $('#film').val();
     const antall = $('#antall').val();
@@ -75,7 +77,7 @@ function bestillBillett() {
     }
 }
 
-
+//deletes all tickets in one button
 function slettAlle() {
     const url = "/slettAlle";
     $.ajax({
@@ -90,7 +92,7 @@ function slettAlle() {
         }
     })
 }
-
+//deletes a single ticket in one button
 function slettEnKunde(id) {
     const url = "/slettBooking?id=" + id;
     $.ajax({
@@ -105,12 +107,13 @@ function slettEnKunde(id) {
         }
     });
 }
+//recieves all the tickets from the bookingkontroller
 function hentAlleBilletter(){
     $.get("/hentAlle", function(billetter){
         visAlleBilletter(billetter);
     });
 }
-
+//sorts all the tickets with a button
     function sorterTickets() {
         const url = "/sorter";
         $.ajax({
