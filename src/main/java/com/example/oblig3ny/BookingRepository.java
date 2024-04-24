@@ -72,7 +72,7 @@ public class BookingRepository {
         String sql = "DELETE FROM Booking WHERE id=?";
         db.update(sql, id);
     }
-    public List<Booking> sorterBilletter() {
+    public List<Booking> sorterDatabase() {
         String sql = "SELECT * FROM Booking ORDER BY etternavn ASC";
         return db.query(sql, new BeanPropertyRowMapper<>(Booking.class));
     }

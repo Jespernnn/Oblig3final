@@ -40,7 +40,7 @@ public class BookingKontroller {
     }
     @GetMapping("/sorter")
     public ResponseEntity<List<Booking>> sorterTickets() {
-        List<Booking> sortedList = rep.sorterBilletter();
+        List<Booking> sortedList = rep.sorterDatabase();
         return ResponseEntity.ok(sortedList);
     }
 }

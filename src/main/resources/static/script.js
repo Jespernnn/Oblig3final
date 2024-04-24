@@ -116,8 +116,8 @@ function hentAlleBilletter(){
         $.ajax({
             url: url,
             type: 'GET',
-            success: function (sortedBilletter) {
-                visAlleBilletter(sortedBilletter);
+            success: function (sortedBookings) {
+                visAlleBilletter(sortedBookings);
             },
             error: function (error) {
                 alert("fault.");
